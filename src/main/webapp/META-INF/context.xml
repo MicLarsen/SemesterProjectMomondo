@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/SemesterProjektMomondo"/>
+<Context path="/SemesterProjektMomondo">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="momondo" password="Test1234" type="javax.sql.DataSource" url="jdbc:mysql://52.57.238.176:3306/momondo" username="momondo"/>
+</Context>
