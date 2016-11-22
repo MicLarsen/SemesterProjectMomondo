@@ -6,6 +6,8 @@
 package interfaceTest;
 
 import S2S.S2SDummyClass;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -56,5 +58,7 @@ public class S2SInterfaceTEST {
         assertEquals(from,fromRet);
         assertEquals(date,dateRet);
     }
-
+    
+    
+    
 }
