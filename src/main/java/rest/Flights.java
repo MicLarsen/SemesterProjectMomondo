@@ -32,12 +32,12 @@ public class Flights {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{from}/{date}/{tickets}")
-    public String getJson(@PathParam("from") String from ,@PathParam("date") String date ,@PathParam("ticket") String ticket ) {
+    @Path("/{from}/{date}/{tickets}")
+    public String getJson(@PathParam("from") String from ,@PathParam("date") String date ,@PathParam("tickets") String ticket ) {
         JSONObject obj = new JSONObject(); 
         obj.put("from" , from); //        api/flights/:from/:date/:tickets
         obj.put("date" , date); //        api/flights/:from/:date/:tickets
-        obj.put("ticket" , ticket); //        api/flights/:from/:date/:tickets
+        obj.put("tickets" , ticket); //        api/flights/:from/:date/:tickets
 
         return obj.toString();
 //

@@ -22,12 +22,17 @@ public class FlightsTest extends BaseRestTest{
     
     @Test
     public void callApi() {
-      
+
+        String from = "CPH";
+        String date = "2016-11-22";
+        String ticket = "5";
         when().
-                get("/flights").
+                get("/flights/"+from+"/"+ date + "/" + ticket).
                 then().
                 contentType(ContentType.JSON).
-                body("result" , equalTo("success"));
+                body("from" , equalTo(from)).
+                body("date", equalTo(date)).
+                body("tickets", equalTo(ticket));
                
     }
     
