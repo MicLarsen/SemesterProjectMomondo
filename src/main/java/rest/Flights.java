@@ -7,7 +7,9 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import org.json.simple.JSONObject;
 
 /**
  * REST Web Service
@@ -30,16 +32,20 @@ public class Flights {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-//        api/flights/:from/:date/:tickets
+    @Path("/{from}/{date}/{tickets}")
+    public String getJson(@PathParam("from") String from ,@PathParam("date") String date ,@PathParam("tickets") String ticket ) {
+        JSONObject obj = new JSONObject(); 
+        obj.put("from" , from); //        api/flights/:from/:date/:tickets
+        obj.put("date" , date); //        api/flights/:from/:date/:tickets
+        obj.put("tickets" , ticket); //        api/flights/:from/:date/:tickets
+
+        return obj.toString();
 //
 //Parameters:
 //from:  Start Airport (as  an IATA Code)
 //date: Travel date (as a ISO-8601 date)
 //tickets : Requested amount of tickets (integer)
 
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
     }
 
     /**
