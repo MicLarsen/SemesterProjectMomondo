@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import org.json.simple.JSONObject;
 
 /**
  * REST Web Service
@@ -37,6 +38,8 @@ public class Flights {
         obj.put("from" , from); //        api/flights/:from/:date/:tickets
         obj.put("date" , date); //        api/flights/:from/:date/:tickets
         obj.put("ticket" , ticket); //        api/flights/:from/:date/:tickets
+
+        return obj.toString();
 //
 //Parameters:
 //from:  Start Airport (as  an IATA Code)
