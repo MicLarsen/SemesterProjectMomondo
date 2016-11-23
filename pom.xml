@@ -81,6 +81,32 @@
             <version>20160810</version>
         </dependency>
         <dependency>
+            <groupId>com.github.junitrunner</groupId>
+            <artifactId>junitrunner-mockito</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>1.0-beta-5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs-all</artifactId>
+            <version>3.1.0.Beta1</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.0.M9</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
