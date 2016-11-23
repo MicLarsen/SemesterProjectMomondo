@@ -22,33 +22,23 @@ public class BookingInfo {
     @ManyToOne
     private FlightInfo flightInfo;
     
-    private String flightNumber;
-    
-    private String origin;  //departure airport
-    
-    private String destination;
-    
-    private String date;  //date as string in iso-8601 format
-    
-    private int flightTime;  //flight time in minutes!
-    
     private int numOfSeats;
     
     private String reserveeName;
+    
+    private String reserveePhone;
+    
+    private String reserveeEmail;
     
     @OneToMany(mappedBy = "bookingInfo")
     private List<Person> passengers;
     
     public BookingInfo(){}
     
-    public BookingInfo(String flightNumber, String origin, String destination, String date, int flightTime, int numOfSeats, String reserveeName, List<Person> passengers){
-        this.flightNumber = flightNumber;
-        this.origin = origin;
-        this.destination = destination;
-        this.date = date;
-        this.flightTime = flightTime;
-        this.numOfSeats = numOfSeats;
+    public BookingInfo(String reserveeName, List<Person> passengers, String reserveePhone, String reserveeEmail){
         this.reserveeName = reserveeName;
+        this.reserveePhone = reserveePhone;
+        this.reserveeEmail = reserveeEmail;
         this.passengers = passengers;
     }
 }
