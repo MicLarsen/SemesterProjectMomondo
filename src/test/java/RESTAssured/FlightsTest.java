@@ -16,7 +16,7 @@ import rest.Flights;
  *
  * @author Michael
  */
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 public class FlightsTest extends BaseRestTest {
 
     public FlightsTest() {
