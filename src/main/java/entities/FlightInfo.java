@@ -28,7 +28,6 @@ public class FlightInfo {
     
     private String destination;
     
-    
     public FlightInfo(){}
     
     public FlightInfo(String flightId, String flightNumber, String date, int numOfSeats, int totalPrice, int travelTime, String origin, String destination){
