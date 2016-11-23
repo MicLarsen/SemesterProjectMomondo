@@ -20,16 +20,13 @@ public class BookingInfo {
     
     private String flightNumber;
     
-    //departure airport
-    private String origin;
+    private String origin;  //departure airport
     
     private String destination;
     
-    //date as string in iso-8601 format
-    private String date;
+    private String date;  //date as string in iso-8601 format
     
-    //flight time in minutes!
-    private int flightTime;
+    private int flightTime;  //flight time in minutes!
     
     private int numOfSeats;
     

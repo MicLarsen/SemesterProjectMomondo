@@ -15,19 +15,15 @@ public class FlightInfo {
     
     private String flightNumber;
     
-    //date+time
-    private String date;
+    private String date;  //date as string in iso-8601 format
     
     private int numOfSeats;
     
     private int totPrice;
-    private String currency;
     
-    //this variable is travel time in minutes!
-    private int travelTime;
+    private int travelTime;  //date as string in iso-8601 format
     
-    //this is the depature airport!
-    private String origin;
+    private String origin;  //this is the depature airport!
     
     private String destination;
     
@@ -63,10 +59,6 @@ public class FlightInfo {
 
     public int getTotPrice() {
         return totPrice;
-    }
-
-    public String getCurrency() {
-        return currency;
     }
 
     public int getTravelTime() {
