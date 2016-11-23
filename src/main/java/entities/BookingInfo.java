@@ -41,4 +41,34 @@ public class BookingInfo {
         this.reserveeEmail = reserveeEmail;
         this.passengers = passengers;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public FlightInfo getFlightInfo() {
+        return flightInfo;
+    }
+
+    public int getNumOfSeats() {
+        return numOfSeats;
+    }
+
+    public String getReserveeName() {
+        return reserveeName;
+    }
+
+    public String getReserveePhone() {
+        return reserveePhone;
+    }
+
+    public String getReserveeEmail() {
+        return reserveeEmail;
+    }
+
+    public List<Person> getPassengers() {
+        return passengers;
+    }
+    
+    
 }
