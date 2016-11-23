@@ -8,15 +8,14 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.resteasy.plugins.server.tjws.TJWSEmbeddedJaxrsServer;
 import rest.Flights;
+
 
 /**
  *
  * @author Michael
  */
-@RunWith(MockitoJUnitRunner.class)
 public class FlightsTest extends BaseRestTest {
 
     public FlightsTest() {
@@ -24,6 +23,11 @@ public class FlightsTest extends BaseRestTest {
 
     @Test
     public void callApi() {
+        
+        TJWSEmbeddedJaxrsServer tjws = new TJWSEmbeddedJaxrsServer();
+        tjws.setPort(8081);
+        tjws.getRegistry().addPerRequestResource(Flights.class);
+        tjws.start();
  
         String airline = "gruppe4";
         String flightID = "2257-1457179200000";

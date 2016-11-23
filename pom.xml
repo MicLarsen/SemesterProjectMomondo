@@ -89,6 +89,8 @@
             <groupId>org.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
             <version>1.0-beta-5</version>
+            <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
