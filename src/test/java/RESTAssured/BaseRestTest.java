@@ -24,8 +24,8 @@ public class BaseRestTest {
 
     @BeforeClass
     public static void setUpClass() throws LifecycleException {
-    RestAssured.baseURI = "http://localhost:8084/SemesterProjektMomondo";
-    RestAssured.basePath = "/api";
+    RestAssured.baseURI = "http://localhost:8081";
+    RestAssured.basePath = "";
         }
 
     @AfterClass
