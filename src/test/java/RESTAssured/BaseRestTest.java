@@ -18,28 +18,15 @@ public class BaseRestTest {
 
     public static Response response;
     public static String jsonAsString;
-    public static TJWSEmbeddedJaxrsServer server;
-    public static Tomcat tomcat;
-
 
     public BaseRestTest() {
     }
-
 
     @BeforeClass
     public static void setUpClass() throws LifecycleException {
     RestAssured.baseURI = "http://localhost:8084/SemesterProjektMomondo";
     RestAssured.basePath = "/api";
-//    tomcat = new Tomcat();
-//    tomcat.setPort(8080);
-//
-//    //actually deploy stuff on your tomcat by defining contexts          
-//
-//    tomcat.start();
-//    tomcat.getServer().await();
-    
-    
-    }
+        }
 
     @AfterClass
     public static void tearDownClass() {
