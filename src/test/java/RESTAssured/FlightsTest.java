@@ -24,9 +24,7 @@ public class FlightsTest extends BaseRestTest {
 
     @Test
     public void callApi() {
-
-        
-        
+ 
         String airline = "gruppe4";
         String flightID = "2257-1457179200000";
         String flightNumber = "COL2257";
@@ -51,14 +49,6 @@ public class FlightsTest extends BaseRestTest {
         body("flights[0].origin", equalTo(origin)).
         body("flights[0].destination", equalTo(destination));
 
-//        aFlight.put("flightID", flightID);
-//        aFlight.put("flightNumber", flightNumber);
-//        aFlight.put("date", date);
-//        aFlight.put("numberOfSeats", 3);
-//        aFlight.put("totalPrice", 180);
-//        aFlight.put("traveltime", 120);
-//        aFlight.put("origin", "CDG");
-//        aFlight.put("destination", "CPH");
     }
 
     @AfterClass
@@ -73,9 +63,4 @@ public class FlightsTest extends BaseRestTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

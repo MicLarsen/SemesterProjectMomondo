@@ -94,11 +94,6 @@ public class Flights {
         obj.put("flights" ,flights);
 
         return obj.toString();
-//
-//Parameters:
-//from:  Start Airport (as  an IATA Code)
-//date: Travel date (as a ISO-8601 date)
-//tickets : Requested amount of tickets (integer)
 
     }
 
