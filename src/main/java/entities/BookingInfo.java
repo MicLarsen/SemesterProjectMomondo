@@ -41,6 +41,14 @@ public class BookingInfo {
         this.reserveeEmail = reserveeEmail;
         this.passengers = passengers;
     }
+    
+    public BookingInfo(String reserveeName, List<Person> passengers, String reserveePhone, String reserveeEmail, FlightInfo fi){
+        this.reserveeName = reserveeName;
+        this.reserveePhone = reserveePhone;
+        this.reserveeEmail = reserveeEmail;
+        this.passengers = passengers;
+        this.flightInfo = fi;
+    }
 
     public int getId() {
         return id;
