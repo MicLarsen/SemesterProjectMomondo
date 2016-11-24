@@ -78,6 +78,33 @@ public class Flights {
         return obj.toString();
 
     }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{from}/{to}/{date}/{tickets}")
+    public String getFlights(@PathParam("from") String from,@PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String ticket){
+        JSONObject obj = new JSONObject();
+
+        obj.put("airline", "gruppe4");
+
+        JSONArray flights = new JSONArray();
+
+        JSONObject aFlight = new JSONObject();
+
+        aFlight.put("flightID", "2257-1457179200000");
+        aFlight.put("flightNumber", "COL2257");
+        aFlight.put("date", "2016-03-05T13:00:00.000Z");
+        aFlight.put("numberOfSeats", 3);
+        aFlight.put("totalPrice", 180);
+        aFlight.put("traveltime", 120);
+        aFlight.put("origin", "CDG");
+        aFlight.put("destination", "CPH");
+
+        flights.add(aFlight);
+
+        obj.put("flights", flights);
+
+        return obj.toString();       
+    }
 
     /**
      * PUT method for updating or creating an instance of Flights
