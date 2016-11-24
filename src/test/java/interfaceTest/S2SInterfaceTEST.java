@@ -43,7 +43,7 @@ public class S2SInterfaceTEST {
         String date = "someday";
         int tickets = 0;
         
-        JSONObject json = s2s.getJsonFromServer(from, date, tickets);
+        JSONObject json = s2s.getAirlineData(from, date, tickets);
         Object fromRet = json.get("from: ");
         Object dateRet = json.get("date: ");
         Object ticketsRet = json.get("tickets: ");
