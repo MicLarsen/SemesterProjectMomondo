@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class S2SDummyClass implements S2SInterface {
 
     @Override
-    public JSONObject getJsonFromServer(String from, String date, int tickets) {
+    public JSONObject getAirlineData(String from, String date, int tickets) {
         JSONObject json = new JSONObject();
         json.put("from: ", from);
         json.put("date: ", date);
