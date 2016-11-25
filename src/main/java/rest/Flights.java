@@ -1,5 +1,6 @@
 package rest;
 
+import S2S.AirlineInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -9,8 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * REST Web Service
@@ -23,6 +24,8 @@ public class Flights {
 
     @Context
     private UriInfo context;
+    
+    AirlineInfo airlineInfo = new AirlineInfo();
 
     public Flights() {
     }
@@ -56,6 +59,11 @@ public class Flights {
 
         JSONObject obj = new JSONObject();
 
+        
+        String d = "2016-03-05T13:00:00.000Z";
+        String f = "CPH";
+        int t = 2;
+        
         obj.put("airline", "gruppe4");
 
         JSONArray flights = new JSONArray();
@@ -71,10 +79,14 @@ public class Flights {
         aFlight.put("origin", "CDG");
         aFlight.put("destination", "CPH");
 
-        flights.add(aFlight);
+        flights.put(aFlight);
 
         obj.put("flights", flights);
 
+        int h = Integer.parseInt(ticket);
+
+//        obj = airlineInfo.getAirlineData("CPH", "2017-02-01T00:00:00.000Z", 2);
+        
         return obj.toString();
 
     }
@@ -99,7 +111,7 @@ public class Flights {
         aFlight.put("origin", "CDG");
         aFlight.put("destination", "CPH");
 
-        flights.add(aFlight);
+        flights.put(aFlight);
 
         obj.put("flights", flights);
 

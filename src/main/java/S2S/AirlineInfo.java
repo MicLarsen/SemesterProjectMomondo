@@ -54,7 +54,7 @@ public class AirlineInfo implements S2SInterface, Runnable {
         }
         return null;
     }
-
+    
     @Override
     public JSONObject getJsonFromServer(String from, String to, String date, int tickets) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -88,4 +88,9 @@ public class AirlineInfo implements S2SInterface, Runnable {
         }
         return stringBuilder.toString();
     }
+    
+//    public static void main(String[] args) throws IOException, JSONException {
+//        JSONObject json = getAirlineData("CPH", "2017-02-01T00:00:00.000Z", 2);
+//        System.out.println(json);
+//    }
 }
