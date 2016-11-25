@@ -9,6 +9,7 @@ import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import io.restassured.parsing.Parser;
 import static org.hamcrest.CoreMatchers.equalTo;
+import org.junit.Ignore;
 
 /**
  *
@@ -59,7 +60,7 @@ public class FlightsRestIntegrationTest {
         String origin = "CDG";
         String destination = "CPH";
         
-        when().get("/api/flights/test/test/test")
+        when().get("/api/flights/test/test/2")
                 .then().statusCode(200).
                 body("airline", equalTo(airline)).
                 body("flights[0].flightID", equalTo(flightID)).
