@@ -111,7 +111,7 @@ public class Flights {
         aFlight.put("origin", "CDG");
         aFlight.put("destination", "CPH");
 
-        flights.add(aFlight);
+        flights.put(aFlight);
 
         obj.put("flights", flights);
 
