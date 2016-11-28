@@ -22,7 +22,8 @@ public class BookingJPA implements BookingJPAInterface {
     public BookingInfo insertBookingInf(BookingInfo bi) {
         try {
             em.getTransaction().begin();
-            em.merge(bi);
+            em.persist(bi);
+            em.flush();
             em.getTransaction().commit();
 
             return bi;

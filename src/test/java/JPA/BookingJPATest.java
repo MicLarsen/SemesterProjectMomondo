@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -25,8 +24,10 @@ public class BookingJPATest {
 
     static EntityManagerFactory emf;
     static FlightInfo fi;
-    static List<Object> listOfTestItems = new ArrayList();
-    BookingInfo bi;
+    static List<BookingInfo> listOfDummyBookings = new ArrayList();
+    static List<FlightInfo> listOfDummyFlights = new ArrayList();
+    
+    static BookingInfo biObj;
 
     public BookingJPATest() {
     }
@@ -35,6 +36,7 @@ public class BookingJPATest {
     public static void setUpClass() {
         emf = Persistence.createEntityManagerFactory("SemesterProjektMomondo");
         fi = initDummyFlight();
+        biObj = initDummyBooking();
     }
 
     @AfterClass
@@ -58,20 +60,17 @@ public class BookingJPATest {
     public void testInsertBookingInf() {
         System.out.println("insertBookingInf");
 
-        String reserveeName = "test";
-        List<Person> passengers = new ArrayList();
-        String reserveePhone = "12345678";
-        String reserveeEmail = "test@test.com";
-
-        bi = new BookingInfo(reserveeName, passengers, reserveePhone, reserveeEmail, fi);
-        listOfTestItems.add(bi);
+        BookingInfo bi = new BookingInfo("test", new ArrayList(), "12345678", "test@test.com", fi);
+        
+        listOfDummyBookings.add(bi);
 
         BookingJPA instance = new BookingJPA(emf);
 
         BookingInfo expResult = bi;
         BookingInfo result = instance.insertBookingInf(bi);
-        
-        assertEquals(expResult, result);
+        System.out.println("testInsertBookingInf Inserted Booking: " + result.getId());
+        assertEquals(expResult.getReserveeName(), result.getReserveeName());
+        assertEquals(expResult.getReserveeEmail(), result.getReserveeEmail());
     }
 
     /**
@@ -80,16 +79,19 @@ public class BookingJPATest {
     @Test
     public void testRetrieveBookingInf() {
         System.out.println("retrieveBookingInf");
-        String email = "test@test.com";
+        
+        String email = biObj.getReserveeEmail();
         String flightNumber = fi.getFlightNumber();
 
         BookingJPA instance = new BookingJPA(emf);
-        BookingInfo expResult = bi;
+        BookingInfo expResult = biObj;
         BookingInfo result = instance.retrieveBookingInf(email, flightNumber);
-        assertEquals(expResult, result);
+        assertEquals(expResult.getReserveeEmail(), result.getReserveeEmail());
 
     }
 
+    
+    //Initializing and Inserting a flight for use in bookingInfo objects!
     private static FlightInfo initDummyFlight() {
 
         String flightId = "2257-1457179200000";
@@ -97,18 +99,37 @@ public class BookingJPATest {
         String date = "2016-03-05T13:00:00.000Z";
         int seats = 3;
         int price = 180;
-        int traveltime = 120;
+        int travelTime = 120;
         String origin = "CDG";
         String destination = "CPH";
 
-        FlightInfo fi = new FlightInfo(flightId, flightNumber, date, seats, price, traveltime, origin, destination);
+        FlightInfo fi = new FlightInfo(flightId, flightNumber, date, seats, price, travelTime, origin, destination);
 
         FlightsJPA fjpa = new FlightsJPA(emf);
-        listOfTestItems.add(fi);
+        listOfDummyFlights.add(fi);
         fjpa.insertFlightInf(fi);
+        System.out.println("initDummyFlight Inserted Flight: " + fi.getFlightId());
         return fi;
     }
 
+    //Initializing and Inserting a BookingInfo for use in tests excluding testInsertBookingInf
+    private static BookingInfo initDummyBooking(){
+        
+        String reserveeName = "RetrieveTest";
+        List<Person> passengers = new ArrayList();
+        String reserveePhone = "22345678";
+        String reserveeEmail = "retrieve@test.com";
+        
+        BookingInfo bookingInfo = new BookingInfo(reserveeName, passengers, reserveePhone, reserveeEmail, fi);
+        listOfDummyBookings.add(bookingInfo);
+        BookingJPA bjpa = new BookingJPA(emf);
+        bjpa.insertBookingInf(bookingInfo);
+        System.out.println("initDummyBooking Inserted Booking: " + bookingInfo.getId());
+        return bookingInfo;
+    }
+    
+    
+    //Removes all entities inserted during tests 
     private static void cleanupDataBase() {
         System.out.println("cleanupDataBase");
         EntityManager em = emf.createEntityManager();
@@ -116,17 +137,23 @@ public class BookingJPATest {
         try {
             transaction.begin();
 
-            Query q1 = em.createQuery("DELETE FROM Person");
-            Query q2 = em.createQuery("DELETE FROM BookingInfo");
-            Query q3 = em.createQuery("DELETE FROM FlightInfo");
-
-            q1.executeUpdate();
-            q2.executeUpdate();
-            q3.executeUpdate();
+            System.out.println("Removing amount of bookings: " + listOfDummyBookings.size());
+            for(BookingInfo obj : listOfDummyBookings){
+                BookingInfo doRemove = em.find(BookingInfo.class, obj.getId());
+                em.remove(doRemove);
+                System.out.println("Booking removed: " + obj.getId());
+            }
+            
+            System.out.println("Removing amount of flights: " + listOfDummyFlights.size());
+            for(FlightInfo obj :  listOfDummyFlights){
+                FlightInfo doRemove = em.find(FlightInfo.class, obj.getFlightId());
+                em.remove(doRemove);
+                System.out.println("Flight removed: " + obj.getFlightId());
+            }
 
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("cleanupDataBase failed due to: " + e.getCause());
+            System.out.println("cleanupDataBase failed due to: " + e.getCause() + e.getLocalizedMessage());
             transaction.rollback();
         } finally {
             em.close();
