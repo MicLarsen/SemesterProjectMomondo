@@ -13,3 +13,6 @@ hs_err_pid*
 **/.DS_Store
 /target/
 /nbproject/
+
+**/node_modules/
+**/bower_components/

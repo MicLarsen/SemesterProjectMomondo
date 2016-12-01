@@ -1,0 +1,10 @@
+{
+  "flightID": "2214-1483268400000",
+  "numberOfSeats": 1,
+  "date": "2017-01-01T06:00:00.000Z",
+  "totalPrice": 75,
+  "traveltime": 60,
+  "origin": "CPH",
+  "destination": "SXF",
+  "flightNumber": "COL2214"
+}

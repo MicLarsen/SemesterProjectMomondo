@@ -1,0 +1,92 @@
+[
+  {
+    "airline": "AngularJS Airline",
+    "flights": [
+      {
+        "flightID": "2214-1483268400000",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T06:00:00.000Z",
+        "totalPrice": 75,
+        "traveltime": 60,
+        "origin": "CPH",
+        "destination": "SXF",
+        "flightNumber": "COL2214"
+      },
+      {
+        "flightID": "3256-1483315200000",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T19:00:00.000Z",
+        "totalPrice": 50,
+        "traveltime": 90,
+        "origin": "CPH",
+        "destination": "STN",
+        "flightNumber": "COL3256"
+      },
+      {
+        "flightID": "3256-1483282800000",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T10:00:00.000Z",
+        "totalPrice": 65,
+        "traveltime": 90,
+        "origin": "CPH",
+        "destination": "STN",
+        "flightNumber": "COL3256"
+      },
+      {
+        "flightID": "2216-1483300800000",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T15:00:00.000Z",
+        "totalPrice": 70,
+        "traveltime": 60,
+        "origin": "CPH",
+        "destination": "SXF",
+        "flightNumber": "COL2216"
+      }
+    ]
+  },
+  {
+    "airline": "Another Airline",
+    "flights": [
+      {
+        "flightID": "2345-1458746985664",
+        "numberOfSeats": 25,
+        "date": "2017-01-01T06:00:00.000Z",
+        "totalPrice": 90,
+        "traveltime": 70,
+        "origin": "CPH",
+        "destination": "SXF",
+        "flightNumber": "FKS1231"
+      },
+      {
+        "flightID": "8956-1232132353232",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T19:00:00.000Z",
+        "totalPrice": 60,
+        "traveltime": 95,
+        "origin": "CPH",
+        "destination": "STN",
+        "flightNumber": "OGM3242"
+      },
+      {
+        "flightID": "6565-7567565645334",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T10:00:00.000Z",
+        "totalPrice": 65,
+        "traveltime": 160,
+        "origin": "CPH",
+        "destination": "STN",
+        "flightNumber": "BMG2314"
+      },
+      {
+        "flightID": "4323-6544234632234",
+        "numberOfSeats": 1,
+        "date": "2017-01-01T15:00:00.000Z",
+        "totalPrice": 70,
+        "traveltime": 364,
+        "origin": "CPH",
+        "destination": "SXF",
+        "flightNumber": "CAL1232"
+      }
+    ]
+  }
+]

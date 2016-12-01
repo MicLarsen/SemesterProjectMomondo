@@ -1,0 +1,81 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-4 sticky-container">
+
+                <div class="sticky">
+                    <div class="tile">
+                        <div class="tile-heading">
+                            <h3>Search</h3>
+                        </div>
+                    </div>
+                    <div class="tile">
+                        <div class="tile-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Origin</label>
+                                        <select class="form-control" ng-model="vm.search.origin" ng-options="item.abbr as item.city for item in vm.getAirports()">
+                                            <option value="" selected disabled>Select an origin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input ng-model="vm.search.date" type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Seats</label>
+                                        <input ng-model="vm.search.seats" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Destination <span>(optional)</span></label>
+
+                                        <select class="form-control" ng-model="vm.search.destination" ng-disabled="!vm.search.origin" ng-options="item.abbr as item.city for item in vm.getAirports() | filter: { abbr: '!' +  vm.search.origin}">
+                                            <option value="" selected disabled>Select a destination</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button ng-click="vm.searchFlights()" ng-disabled="vm.searching || !vm.search.origin || !vm.search.date || vm.search.seats < 1" class="btn btn-primary btn-block">
+                                        <span ng-show="!vm.searching">Search</span>
+                                        <span ng-show="vm.searching">Searching...</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-8">
+                <div class="tile tile-results">
+                    <div class="tile-heading">
+                        <h3>Results <span ng-hide="!vm.searching"><i class="fa fa-fw fa-spin fa-refresh pull-right"></i></span></h3>
+                    </div>
+                </div>
+
+                <div ng-show="!vm.flights.length && !vm.hasSearched" class="alert alert-info">
+                    <p>Enter your search criterias and hit the 'search' button, to get a list of flights.</p>
+                </div>
+
+                <div ng-show="!vm.flights.length && vm.hasSearched" class="alert alert-warning">
+                    <p>No flights matched your search criterias, please try again.</p>
+                </div>
+
+                <flight-result ng-repeat="f in vm.flights" data="f"></flight-result>
+
+            </div>
+
+        </div>
+    </div>
+</div>
