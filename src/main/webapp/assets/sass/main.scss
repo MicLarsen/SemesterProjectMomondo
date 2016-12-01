@@ -1,0 +1,24 @@
+/* Prerequisites */
+@import 'setup';
+@import '../components/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import '../../assets/components/font-awesome/css/font-awesome.min.css';
+
+/* Global styles */
+@import 'global';
+
+/* Components */
+@import 'components/tile';
+@import 'components/button';
+@import 'components/alert';
+@import 'components/animations';
+@import 'components/input';
+
+/* Directives */
+@import '../../app/directives/flight-result/flight-result';
+@import '../../app/directives/flight-booking/flight-booking';
+
+/* Views */
+@import '../../app/views/booking/booking';
+
+/* Angular Plugins */
+@import '../../app/config/toastr/toastr';
