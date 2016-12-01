@@ -6,9 +6,9 @@
 
 angular.module('myApp').factory('dataFactory', dataFactory);
 
-dataFactory.$inject = ['$http', '$q', 'cfg'];
+dataFactory.$inject = ['$http', '$q'];
 
-function dataFactory($http, $q, cfg) {
+function dataFactory($http, $q) {
     var data = {
         flights: {}
     };
@@ -41,7 +41,7 @@ function dataFactory($http, $q, cfg) {
 
     function get(url) {
         let q = $q.defer();
-        $http.get(cfg.baseurl + url).then(function (response) {
+        $http.get(url).then(function (response) {
             q.resolve(response.data);
         }, function (response) {
             q.reject(response.data);
@@ -51,7 +51,7 @@ function dataFactory($http, $q, cfg) {
 
     function post(url, data) {
         let q = $q.defer();
-        $http.post(cfg.baseurl + url, data).then(function (response) {
+        $http.post(url, data).then(function (response) {
             q.resolve(response.data);
         }, function (response) {
             q.reject(response.data);
