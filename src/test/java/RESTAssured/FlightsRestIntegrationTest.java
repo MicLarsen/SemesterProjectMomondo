@@ -15,6 +15,7 @@ import org.junit.Ignore;
  *
  * @author nickl
  */
+@Ignore
 public class FlightsRestIntegrationTest {
 
     public FlightsRestIntegrationTest() {

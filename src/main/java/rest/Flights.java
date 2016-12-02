@@ -7,11 +7,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /**
  * REST Web Service
@@ -24,7 +22,7 @@ public class Flights {
 
     @Context
     private UriInfo context;
-    
+
     AirlineInfo airlineInfo = new AirlineInfo();
 
     public Flights() {
@@ -57,65 +55,31 @@ public class Flights {
     @Path("/{from}/{date}/{tickets}")
     public String getJson(@PathParam("from") String from, @PathParam("date") String date, @PathParam("tickets") String ticket) {
 
-        JSONObject obj = new JSONObject();
-
-        
-        String d = "2016-03-05T13:00:00.000Z";
-        String f = "CPH";
-        int t = 2;
-        
-        obj.put("airline", "gruppe4");
-
-        JSONArray flights = new JSONArray();
-
-        JSONObject aFlight = new JSONObject();
-
-        aFlight.put("flightID", "2257-1457179200000");
-        aFlight.put("flightNumber", "COL2257");
-        aFlight.put("date", "2016-03-05T13:00:00.000Z");
-        aFlight.put("numberOfSeats", 3);
-        aFlight.put("totalPrice", 180);
-        aFlight.put("traveltime", 120);
-        aFlight.put("origin", "CDG");
-        aFlight.put("destination", "CPH");
-
-        flights.put(aFlight);
-
-        obj.put("flights", flights);
-
-        int h = Integer.parseInt(ticket);
-
-//        obj = airlineInfo.getAirlineData("CPH", "2017-02-01T00:00:00.000Z", 2);
-        
-        return obj.toString();
-
+        return airlineInfo.getAirlineData(from, date, Integer.parseInt(ticket));
     }
+
+    /**
+     * JSONObject obj = new JSONObject(); obj.put("airline", "gruppe4");
+     * JSONArray flights = new JSONArray(); JSONObject aFlight = new
+     * JSONObject(); aFlight.put("flightID", "2257-1457179200000");
+     * aFlight.put("flightNumber", "COL2257"); aFlight.put("date",
+     * "2016-03-05T13:00:00.000Z"); aFlight.put("numberOfSeats", 3);
+     * aFlight.put("totalPrice", 180); aFlight.put("traveltime", 120);
+     * aFlight.put("origin", "CDG"); aFlight.put("destination", "CPH");
+     * flights.put(aFlight); obj.put("flights", flights);
+     *
+     * @param from
+     * @param to
+     * @param date
+     * @param ticket
+     * @return
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{from}/{to}/{date}/{tickets}")
-    public String getFlights(@PathParam("from") String from,@PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String ticket){
-        JSONObject obj = new JSONObject();
+    public String getFlights(@PathParam("from") String from, @PathParam("to") String to, @PathParam("date") String date, @PathParam("tickets") String ticket) {
 
-        obj.put("airline", "gruppe4");
-
-        JSONArray flights = new JSONArray();
-
-        JSONObject aFlight = new JSONObject();
-
-        aFlight.put("flightID", "2257-1457179200000");
-        aFlight.put("flightNumber", "COL2257");
-        aFlight.put("date", "2016-03-05T13:00:00.000Z");
-        aFlight.put("numberOfSeats", 3);
-        aFlight.put("totalPrice", 180);
-        aFlight.put("traveltime", 120);
-        aFlight.put("origin", "CDG");
-        aFlight.put("destination", "CPH");
-
-        flights.put(aFlight);
-
-        obj.put("flights", flights);
-
-        return obj.toString();       
+        return airlineInfo.getJsonFromServer(from, to, date, 0);
     }
 
     /**
@@ -123,8 +87,10 @@ public class Flights {
      *
      * @param content representation for the resource
      */
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Path("/flightreservation")
+    public String makeReservation(String bookingInfo) {
+        return airlineInfo.bookTickets(bookingInfo);
     }
 }
