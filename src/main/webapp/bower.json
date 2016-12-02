@@ -1,0 +1,25 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "authors": [
+    "Unknown"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-bootstrap": "^2.0.1",
+    "angular-scroll": "^1.0.0",
+    "angular-toastr": "^2.1.1",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap-sass": "~3.3.5",
+    "font-awesome": "~4.5.0",
+    "jquery": "^3.1.1",
+    "moment": "^2.15.1"
+  }
+}

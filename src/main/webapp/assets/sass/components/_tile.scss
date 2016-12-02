@@ -1,0 +1,64 @@
+.tile {
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 15px;
+
+  .tile-heading {
+    background-color: darken($body-bg, 25%);
+    border-radius: 4px;
+    padding: 15px;
+
+    h3 {
+      font-size: 24px;
+      margin: 0;
+      color: white;
+    }
+  }
+
+  .tile-content {
+    padding: 15px;
+
+    .input-group-addon {
+      background-color: white;
+      color: darken($body-bg, 25%);
+    }
+
+  }
+
+}
+
+.tile-results {
+  .tile-heading {
+    border-radius: 4px;
+  }
+}
+
+.tile-reservation {
+  .tile-heading {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.sticky-container {
+  position: relative;
+}
+
+.sticky {
+  position: fixed;
+  width: 370px;
+
+  @media screen and (max-width: 1199px) {
+    width: 305px;
+  }
+
+  @media screen and (max-width: 991px) {
+    width: 230px;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: relative;
+    width: auto;
+  }
+
+}

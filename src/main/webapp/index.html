@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+﻿<!DOCTYPE HTML>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <title>Flight App</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:700,600,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="dist/css/main.min.css">
+    <script src="dist/js/dependencies.min.js"></script>
+    <script src="dist/js/app.min.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="view-wrapper">
+        <main ui-view></main>
+    </div>
+</div>
+
+</body>
 </html>

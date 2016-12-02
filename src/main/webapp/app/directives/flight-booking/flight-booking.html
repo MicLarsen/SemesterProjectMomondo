@@ -1,0 +1,30 @@
+<div class="tile flight-booking">
+    <div class="tile-content">
+        <div class="row">
+            <div class="departure">
+                <h3>{{data.origin}}</h3>
+                <p>{{airportService.getAirportFromAbbr(data.origin)}}</p>
+            </div>
+            <div class="date">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAqCAYAAAB7uVNDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlDNzI3RTM2QjM4QjExRTY4QzhGREJENjMyRkRBQzI5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlDNzI3RTM3QjM4QjExRTY4QzhGREJENjMyRkRBQzI5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUM3MjdFMzRCMzhCMTFFNjhDOEZEQkQ2MzJGREFDMjkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUM3MjdFMzVCMzhCMTFFNjhDOEZEQkQ2MzJGREFDMjkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6/9j1gAAAKlklEQVR42uxb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"
+                     class="plane">
+                <p>{{data.date | date:'dd-MM-yyyy HH:mm'}}</p>
+            </div>
+            <div class="arrival">
+                <h3>{{data.destination}}</h3>
+                <p>{{airportService.getAirportFromAbbr(data.destination)}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="time">
+                <p>{{data.traveltime}} mins</p>
+            </div>
+            <div class="price">
+                <p>{{data.totalPrice}} USD</p>
+            </div>
+            <div class="seats">
+                <p>{{data.numberOfSeats}} Seats</p>
+            </div>
+        </div>
+    </div>
+</div>

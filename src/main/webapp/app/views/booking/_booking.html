@@ -1,0 +1,89 @@
+<div class="section section-booking">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <div class="tile">
+                    <div class="tile-heading">
+                        <h3>Flight #{{vm.flight.flightNumber}}</h3>
+                    </div>
+                </div>
+
+                <flight-booking data="vm.flight"></flight-booking>
+
+                <div class="tile tile-reservation">
+                    <div class="tile-heading">
+                        <h3>Reservee</h3>
+                    </div>
+                    <div class="tile-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input ng-model="vm.reservation.reserveeName" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input ng-model="vm.reservation.reserveeEmail" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input ng-model="vm.reservation.reserveePhone" type="tel" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile">
+                    <div class="tile-heading">
+                        <h3>Passengers</h3>
+                    </div>
+                    <div class="tile-content">
+
+                        <div class="row" ng-repeat="passenger in vm.reservation.passengers track by $index">
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" ng-model="passenger.firstname">
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" ng-model="passenger.lastname">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <button class="btn btn-danger btn-block btn-delete-passenger" ng-disabled="vm.reservation.passengers.length < 2" ng-click="vm.removePassenger($index)"><i class="fa fa-fw fa-remove"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-warning btn-block" ng-click="vm.addPassenger()"><i class="fa fa-fw fa-plus"></i> Add passenger</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tile">
+                    <div class="tile-content">
+                        <button class="btn btn-success btn-block" ng-disabled="vm.formValidated() == false || vm.reservationSuccess" ng-click="vm.sendReservation()">Make reservation</button>
+                        <div class="alert" ng-show="vm.reservationSuccess || vm.reservationError" ng-class="{'alert-success' : vm.reservationSuccess, 'alert-danger' : vm.reservationError}">
+                            <p ng-show="vm.reservationSuccess">Your reservation was successfully sent.</p>
+                            <p ng-show="vm.reservationError">An error occured while making your reservation.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
